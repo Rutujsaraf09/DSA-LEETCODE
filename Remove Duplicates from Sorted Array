@@ -1,0 +1,20 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+       Set<Integer> uniqueSet = new HashSet<>();
+
+        int i = 0;
+        for (int num : nums) {
+            if (!uniqueSet.contains(num)) {
+                uniqueSet.add(num);
+                nums[i] = num;
+                i++;
+            }
+        }
+
+        for (; i < nums.length; i++) {
+            nums[i] = 0; // Replace remaining elements with underscores (0 in this case)
+        }
+
+        return uniqueSet.size();
+    }
+}
